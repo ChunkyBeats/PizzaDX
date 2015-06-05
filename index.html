@@ -11,31 +11,37 @@
     <div class="container">
       <h2>Welcome to PizzaDX!</h2>
       <h4>Delivery in 30 minutes or... You still have to pay</h4>
-      <div id="pizza-order">
+
+      <div id="step-1">
         <h3>Place an order:</h3>
-        <div id="pizza-forms">
-          <div class="form-control">
-            <label for="pizza-size">Choose a size:</label>
-            <select class="size" name="pizza-size" type="text">
-              <option value="Small">Small</option>
-              <option value="Medium">Medium</option>
-              <option value="Large">Large</option>
-              <option value="Sheet">Sheet</option>
-            </select>
+        <form id="pizza-form">
+          <div id="order">
+            <div class="new-pizza-form">
+              <div class="form-group">
+                <label for="pizza-size">Choose a size:</label>
+                <select class="size" name="pizza-size" type="text">
+                  <option value="Small">Small</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Large">Large</option>
+                  <option value="Sheet">Sheet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <fieldset id="form-toppings">
+                  <label for="toppings">Add toppings*:</label><br>
+                  <input type="checkbox" name="toppings" value="olives"> Olives<br>
+                  <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni<br>
+                  <input type="checkbox" name="toppings" value="sausage"> Sausage<br>
+                </fieldset>
+                <br><p>*The first topping is free! Additional toppings cost $1 each.</p>
+              </div>
+            </div>
           </div>
-          <div class="form-control">
-            <form id="form-toppings">
-              <label for="toppings">Add toppings*:</label><br>
-              <input type="checkbox" name="toppings" value="olives"> Olives<br>
-              <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni<br>
-              <input type="checkbox" name="toppings" value="sausage"> Sausage<br>
-              <button type="submit" class="btn btn-danger">Submit</button>
-              <span class="btn btn-primary" id="more-pizza">Add another</span>
-            </form>
-            <br><p>*The first topping is free! Additional toppings cost $1 each.</p>
-          </div>
-        </div>
+          <button type="submit" class="btn btn-danger">Submit</button>
+          <span class="btn btn-primary" id="more-pizza">Add another</span>
+        </form>
       </div>
+
       <div id="step-2">
         <ul id="pizzas"></ul>
         <h4 id="cost"></h3>
@@ -43,3 +49,35 @@
     </div>
   </body>
 </html>
+
+
+
+<!-- <div id="pizza-order">
+  <h3>Place an order:</h3>
+  <div id="pizza-forms">
+    <form id="new-pizza">
+      <div id="pizza-form">
+        <div class="form-group">
+          <label for="pizza-size">Choose a size:</label>
+          <select class="size" name="pizza-size" type="text">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+            <option value="Sheet">Sheet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <form id="form-toppings">
+            <label for="toppings">Add toppings*:</label><br>
+            <input type="checkbox" name="toppings" value="olives"> Olives<br>
+            <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni<br>
+            <input type="checkbox" name="toppings" value="sausage"> Sausage<br>
+          </form>
+          <br><p>*The first topping is free! Additional toppings cost $1 each.</p>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-danger">Submit</button>
+      <span class="btn btn-primary" id="more-pizza">Add another</span>
+    </form>
+  </div>
+</div> -->

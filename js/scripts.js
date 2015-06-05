@@ -9,7 +9,7 @@ Pizza.prototype.addTopping = function(type) {
 }
 
 Pizza.prototype.printOut = function() {
-  var string = this.size + " size pizza with cheese";
+  var string = this.size + " pizza with cheese";
 
   if (this.toppings.length > 0) {
     for(var i = 0; i < this.toppings.length; i++) {
@@ -31,29 +31,27 @@ Pizza.prototype.price = function() {
   } else {
     cost = 9;
   }
-  return cost + (this.toppings.length-1);
+  return cost + (this.toppings.length);
 }
 
 function addPizzaField() {
-  $("#pizza-order").append('<div id="pizza-forms">' +
-                            '<div class="form-control">' +
+  $("#order").append('<div class="new-pizza-form">' +
+                            '<div class="form-group">' +
                               '<label for="pizza-size">Choose a size:</label>' +
                               '<select class="size" name="pizza-size" type="text">' +
-                                '<option value="Small">Small</option>' +
-                                '<option value="Medium">Medium</option>' +
-                                '<option value="Large">Large</option>' +
-                                '<option value="Sheet">Sheet</option>' +
+                                '<option value="Small"> Small</option>' +
+                                '<option value="Medium"> Medium</option>' +
+                                '<option value="Large"> Large</option>' +
+                                '<option value="Sheet"> Sheet</option>' +
                               '</select>' +
                             '</div>' +
-                            '<div class="form-control">' +
-                              '<form id="form-toppings">' +
+                            '<div class="form-group">' +
+                              '<fieldset id="form-toppings">' +
                                 '<label for="toppings">Add toppings*:</label><br>' +
-                                '<input type="checkbox" name="toppings" value="olives"> Olives<br>' +
-                                '<input type="checkbox" name="toppings" value="pepperoni"> Pepperoni<br>' +
-                                '<input type="checkbox" name="toppings" value="sausage"> Sausage<br>' +
-                                '<button type="submit" class="btn btn-danger">Submit</button>' +
-                                '<span class="btn btn-primary" id="more-pizza">Add another</span>' +
-                              '</form>' +
+                                '<input type="checkbox" name="toppings" value="olives">Olives<br>' +
+                                '<input type="checkbox" name="toppings" value="pepperoni">Pepperoni<br>' +
+                                '<input type="checkbox" name="toppings" value="sausage">Sausage<br>' +
+                              '</fieldset>' +
                               '<br><p>*The first topping is free! Additional toppings cost $1 each.</p>' +
                             '</div>' +
                           '</div>');
@@ -65,22 +63,27 @@ $(document).ready(function(){
 
   $("#more-pizza").click(function() {
     addPizzaField();
-  })
+  });
 
-  $("#pizza-order").submit(function(event) {
+  $("#pizza-form").submit(function(event) {
     event.preventDefault();
 
-    var size = $(this).find("select.size").val();
-    var pizza = new Pizza(size);
-    $("#form-toppings :checked").each(function() {
-      pizza.addTopping($(this).val());
+    $(".new-pizza-form").each(function() {
+      var size = $(this).find("select.size").val();
+      var pizza = new Pizza(size);
+      $("#form-toppings :checked").each(function() {
+        pizza.addTopping($(this).val());
+      });
+
+      pizzas.push(pizza);
+      totalCost += pizza.price();
     });
 
-    pizzas.push(pizza);
-    totalCost += pizza.price();
-
-    $("#pizza-order").hide();
-    $("ul#pizzas").append("<li>" + pizza.printOut() + "</li>");
+    $("#step-1").hide();
+    for(var i = 0; i < pizzas.length; i++) {
+      pizza = pizzas[i];
+      $("ul#pizzas").append("<li>" + pizza.printOut() + "</li>");
+    }
     $("h4#cost").append("Your order costs: $" + totalCost);
     $("#step-2").show();
   });
