@@ -54,7 +54,6 @@ function addPizzaField() {
                                 '<input type="checkbox" name="toppings" value="pineapple"> Pineapple<br>' +
                                 '<input type="checkbox" name="toppings" value="sausage"> Sausage<br>' +
                               '</fieldset>' +
-                              '<br><p>*The first topping is free! Additional toppings cost $1 each.</p>' +
                             '</div>' +
                           '</div>');
 }
@@ -84,7 +83,7 @@ $(document).ready(function(){
     $("#step-1").hide();
     for(var i = 0; i < pizzas.length; i++) {
       pizza = pizzas[i];
-      $("ul#pizzas").append("<li>" + pizza.printOut() + "</li>");
+      $("h3#pizzas").append(pizza.printOut() + "<br>");
     }
     $("h4#cost").append("Your order costs: $" + totalCost);
     $("#step-2").show();

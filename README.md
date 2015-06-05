@@ -27,8 +27,7 @@ Mocha, Chai, jQuery licenses also included.
 
 Bugs:
 -----
-Checkbox input is applying to all pizzas.
-THE BUGS ARE REAL, CALL THE EXTERMINATOR!!!
+None.  I'm an exterminator!
 
 Future Updates / Thoughts:
 ---------------
