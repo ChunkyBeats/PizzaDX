@@ -11,8 +11,8 @@ describe('Pizza', function() {
   });
 
   it("returns the cost of the pizza", function() {
-    var pizza = new Pizza("large");
+    var pizza = new Pizza("Large");
     pizza.addTopping("pepperoni");
-    expect(pizza.price()).to.equal(14);
+    expect(pizza.price()).to.equal(15);
   });
 });
