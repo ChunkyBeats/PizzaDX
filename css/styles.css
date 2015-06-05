@@ -1,3 +1,25 @@
+body {
+  text-align: center;
+}
+
+.header {
+  margin: 10px;
+  border: solid 2px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
 #step-2 {
   display: none;
+}
+
+ul {
+  display: block;
+  text-align:center;
+  list-style-type: none;
+}
+
+ul li {
+  font-size: 18px;
 }

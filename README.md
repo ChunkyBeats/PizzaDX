@@ -27,10 +27,10 @@ Mocha, Chai, jQuery licenses also included.
 
 Bugs:
 -----
-Checkbox input is applying to all pizzas, and totalCost is only calculated
-from the first pizza.  SO MANY BUGS, CALL THE EXTERMINATOR!!!
+Checkbox input is applying to all pizzas.
+THE BUGS ARE REAL, CALL THE EXTERMINATOR!!!
 
-Future Updates:
+Future Updates / Thoughts:
 ---------------
-Tried to disable submit buttons when no text was present in a field,
-but was unsuccessful.  Try implementing again later.
+Note to self: In future, hire a contractor
+for creating checkbox-based input webpages.

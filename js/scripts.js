@@ -73,7 +73,7 @@ $(document).ready(function(){
     $(".new-pizza-form").each(function() {
       var size = $(this).find("select.size").val();
       var pizza = new Pizza(size);
-      $("fieldset#form-toppings :checked").each(function() {
+      $(this).find("fieldset#form-toppings :checked").each(function() {
         pizza.addTopping($(this).val());
       });
 
