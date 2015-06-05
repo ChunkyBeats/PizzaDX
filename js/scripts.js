@@ -48,9 +48,11 @@ function addPizzaField() {
                             '<div class="form-group">' +
                               '<fieldset id="form-toppings">' +
                                 '<label for="toppings">Add toppings*:</label><br>' +
-                                '<input type="checkbox" name="toppings" value="olives">Olives<br>' +
-                                '<input type="checkbox" name="toppings" value="pepperoni">Pepperoni<br>' +
-                                '<input type="checkbox" name="toppings" value="sausage">Sausage<br>' +
+                                '<input type="checkbox" name="toppings" value="mushrooms"> Mushrooms<br>' +
+                                '<input type="checkbox" name="toppings" value="olives"> Olives<br>' +
+                                '<input type="checkbox" name="toppings" value="pepperoni"> Pepperoni<br>' +
+                                '<input type="checkbox" name="toppings" value="pineapple"> Pineapple<br>' +
+                                '<input type="checkbox" name="toppings" value="sausage"> Sausage<br>' +
                               '</fieldset>' +
                               '<br><p>*The first topping is free! Additional toppings cost $1 each.</p>' +
                             '</div>' +
@@ -71,12 +73,13 @@ $(document).ready(function(){
     $(".new-pizza-form").each(function() {
       var size = $(this).find("select.size").val();
       var pizza = new Pizza(size);
-      $("#form-toppings :checked").each(function() {
+      $("fieldset#form-toppings :checked").each(function() {
         pizza.addTopping($(this).val());
       });
 
       pizzas.push(pizza);
       totalCost += pizza.price();
+      debugger;
     });
 
     $("#step-1").hide();
