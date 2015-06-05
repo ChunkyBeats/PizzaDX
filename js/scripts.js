@@ -22,11 +22,11 @@ Pizza.prototype.printOut = function() {
 
 Pizza.prototype.price = function() {
   var cost;
-  if (this.size === "sheet") {
+  if (this.size === "Sheet") {
     cost = 20;
-  } else if (this.size === "large") {
+  } else if (this.size === "Large") {
     cost = 14;
-  } else if (this.size === "medium") {
+  } else if (this.size === "Medium") {
     cost = 11;
   } else {
     cost = 9;
@@ -79,7 +79,6 @@ $(document).ready(function(){
 
       pizzas.push(pizza);
       totalCost += pizza.price();
-      debugger;
     });
 
     $("#step-1").hide();
